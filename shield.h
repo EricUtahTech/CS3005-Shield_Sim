@@ -1,11 +1,14 @@
 #pragma once
+#include <iostream>
 #include <stdio>
 #include <stdlib>
+#include <cmath>
+#include <string>
 
 class Shield:
     protected:
     double m_charge;
     public:
     Shield();
-    crank_charge();
-    take_shot();
+    void crank_charge();
+    void take_shot(ShotBlaster& shotblaster);
