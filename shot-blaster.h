@@ -1,13 +1,12 @@
 #pragma once
 #include <iostream>
-#include <stdio>
 #include <stack>
-#include <stdlib>
+#include <cstdlib>
 #include <string>
 
-class ShotBlaster:
+class ShotBlaster{
     protected:
-    std::stack<char> m_mag;
+    std::stack<std::string> m_mag;
     int m_capacity;
     public:
     int m_count;
@@ -18,3 +17,4 @@ class ShotBlaster:
     std::string fire();
     void change_range();
     void cool();
+};

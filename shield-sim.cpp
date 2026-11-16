@@ -2,19 +2,19 @@
 #include "shot-blaster.h"
 #include <string>
 
-void main(){
+int main(){
     Shield shield;
     ShotBlaster shotblaster;
     bool quit=false;
     std::cout<<"Shield testing in progress..."<<std::endl;
     while(!quit){
-        std::string choice;
+        std::string input;
         std::cout<<"Choice[charge, shoot, reload, cool, range, quit]: ";
-        std::cin>>choice;
+        std::cin>>input;
         if(input=="charge"){
             shield.crank_charge();
         }else if(input=="shoot"){
-            shield.take_shot();
+            shield.take_shot(shotblaster);
         }else if(input=="reload"){
             shotblaster.load_shells();
         }else if(input=="cool"){
@@ -28,4 +28,5 @@ void main(){
             std::cout<<"Not a valid choice"<<std::endl;
         }
     }
+    return 0;
 }

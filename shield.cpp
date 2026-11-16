@@ -31,31 +31,32 @@ void Shield::take_shot(ShotBlaster& shotblaster){
     if(shotblaster.m_count>0){
         std::string shell=shotblaster.fire();
         std::cout<<"Shell fired: ["<<shell<<"]"<<std::endl;
+        std::cout<<"Shells left: "<<shotblaster.m_count<<std::endl;
         if(shell=="slug"){
             //shield damage
             if(shotblaster.m_range<=25&&shotblaster.m_range>=0){
-                if((m_charge-100)>=0){
+                if((m_charge-100)>0){
                     m_charge=m_charge-100;
                 }else{
                     m_charge=0;
                     std::cout<<"Shields Depleted!"<<std::endl;
                 } 
             }else if(shotblaster.m_range<=50){
-                if((m_charge-75)>=0){
+                if((m_charge-75)>0){
                     m_charge=m_charge-75;
                 }else{
                     m_charge=0;
                     std::cout<<"Shields Depleted!"<<std::endl;
                 }
             }else if(shotblaster.m_range<=75){
-                if((m_charge-50)>=0){
+                if((m_charge-50)>0){
                     m_charge=m_charge-50;
                 }else{
                     m_charge=0;
                     std::cout<<"Shields Depleted!"<<std::endl;
                 }
             }else if(shotblaster.m_range<=100){
-                if((m_charge-25)>=0){
+                if((m_charge-25)>0){
                     m_charge=m_charge-25;
                 }else{
                     m_charge=0;
@@ -70,12 +71,13 @@ void Shield::take_shot(ShotBlaster& shotblaster){
                 std::cout<<"Overheat!"<<std::endl;
             }
             std::cout<<"Charge: {"<<m_charge<<"}"<<std::endl;
+            std::cout<<"Shot-blaster heat: "<<shotblaster.m_heat<<std::endl;
 
         }else if(shell=="lb"){
             //shield damage
             if(shotblaster.m_range<=100&&shotblaster.m_range>=0){
-                if((m_charge-(100*std::pow(0.97, m_range)))>=0){
-                    m_charge=m_charge-(100*std::pow(0.97,m_range));
+                if((m_charge-(100*std::pow(0.97,shotblaster.m_range)))>0){
+                    m_charge=m_charge-(100*std::pow(0.97,shotblaster.m_range));
                 }else{
                     m_charge=0;
                     std::cout<<"Shields Depleted!"<<std::endl;
@@ -89,12 +91,13 @@ void Shield::take_shot(ShotBlaster& shotblaster){
                 std::cout<<"Overheat!"<<std::endl;
             }
             std::cout<<"Charge: {"<<m_charge<<"}"<<std::endl;
+            std::cout<<"Shot-blaster heat: "<<shotblaster.m_heat<<std::endl;
 
         }else if(shell=="sb"){
             //shield damage
             if(shotblaster.m_range<=100&&shotblaster.m_range>=0){
-                if((m_charge-(50*std::pow(0.9909, m_range)))>=0){
-                    m_charge=m_charge-(100*std::pow(0.9909,m_range));
+                if((m_charge-(50*std::pow(0.9909,shotblaster.m_range)))>0){
+                    m_charge=m_charge-(50*std::pow(0.9909,shotblaster.m_range));
                 }else{
                     m_charge=0;
                     std::cout<<"Shields Depleted!"<<std::endl;
@@ -108,6 +111,7 @@ void Shield::take_shot(ShotBlaster& shotblaster){
                 std::cout<<"Overheat!"<<std::endl;
             }
             std::cout<<"Charge: {"<<m_charge<<"}"<<std::endl;
+            std::cout<<"Shot-blaster heat: "<<shotblaster.m_heat<<std::endl;
 
         }else if(shell=="!!!"){
             std::cout<<"Too hot, nothing fired! Charge: {"<<m_charge<<"}"<<std::endl;

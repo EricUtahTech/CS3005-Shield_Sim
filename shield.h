@@ -1,14 +1,15 @@
 #pragma once
 #include <iostream>
-#include <stdio>
-#include <stdlib>
+#include <cstdlib>
 #include <cmath>
 #include <string>
+#include "shot-blaster.h"
 
-class Shield:
+class Shield{
     protected:
     double m_charge;
     public:
     Shield();
     void crank_charge();
     void take_shot(ShotBlaster& shotblaster);
+};
